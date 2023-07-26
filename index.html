@@ -29,6 +29,9 @@
                I am callback function 
 
     </pre></h3>
+    <h3>Explaination:Here i have created two functions and i called greet(callme) with second function name like
+        callme after that greet function will execute and then there is a one callback function. then we get the output
+    </h3>
 
 <h2><pre>
 Q.2	"Write a callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
@@ -44,7 +47,7 @@ Numbers
 7"
 </pre>
 </h2>
-<h3>
+<h2>
     <pre>
         function demo(){
             setTimeout(()=>{
@@ -71,8 +74,13 @@ Numbers
         }
         demo();
     </pre>
+</h2>
+<h3>Explaination:here i created nested call back function in a demo function, but in the process of creating nested callback
+    functions code was extended to right side like a piramid and i gave diffrent times for each nested functions and after 
+    completion of time will get output 
 </h3>
-<h2><pre>
+<h2>
+<pre>
 Q.3	"Write the promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
 
 Numbers
@@ -85,7 +93,7 @@ Numbers
 7"
 </pre>
 </h2>
-<h3>
+<h2>
     <pre>
         function demo(i,count){
             return new Promise((res,rej)=>{
@@ -101,18 +109,176 @@ Numbers
             demo(i,count)
         }
     </pre>
+</h2>
+<h3>Explaination:Here i created one function with Promise and outside of the function i called that function 7 times with
+    for loop and all tasks will  asigned to promise object and all tasks exection will at same time and  depend on time 
+    will get the output one by one with one sec gap 
+
 </h3>
+<h2>
 Q.4	"Create a promise function accepting an argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, and if nothing is passed 
 then it should go to reject the state and catch the error and print Promise Rejected "
+</h2>	
+<h2>
+    <pre>
+        function demo(a){
+            return new Promise((res,rej)=>{
+                if (a=="yes")
+                    res("Promise Resolved")
+                else
+                    rej("Promise Rejected")
+                       })
+                
+            }
+        demo("yes").then((output)=>{
+            console.log(output)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    </pre>
+</h2>
+<h3>
+    output:Promise Resolved
+</h3>
+<h3>Explaination:In this program i wrote promise function accepting the argument and promise is in the inside of demo function
+    so we called demo with argument like demo("yes") and inside of promise checking the argument with "yes" then
+    if it is executed will get Promise resolved other wise will get Promise rejected
+</h3>
+<h2>Q. 5	Create examples to explain callback function</h2>
+<h2><pre>
+    function demo(a){
+        console.log("here i am calling second() like a callback function")
+        
+        second();
+        }
+    function second(){
+        console.log("i was called from the demo function")
+    }
+    demo(second);
+</pre></h2>
+<h2>
+    output:here i am calling second() like a callback function
+            i was called from the  demo function
+</h2>
+<h3>
+    Explaination:Here i have created two functions and i called demo(a) with second function name like
+        second after that i called demo(second) function will execute and then there is a one callback function. then we get the output
+        like:here i am calling second() like a callback function
+        i was called from the  demo function
+    
+</h3>
+<h2>Q. 6	Create examples to explain callback hell function</h2>
+<h2>
+    <pre>
+        function demo(){
+            setTimeout(()=>{
+                        console.log(1);
+                        setTimeout(()=>{
+                            console.log(2);
+                            setTimeout(()=>{
+                                console.log(" use the callback function same way");
+                            },3000)
+                        },2000)
+                    },1000)
+                }
+        demo();
+
+    </pre>
+</h2>
+<h3>Explaination:here i created nested call back function in a demo function, but in the process of creating nested callback
+    functions code was extended to right side like a piramid and i gave diffrent times for each nested functions and after 
+    completion of time will get output like:1 2  use the callback function same way
+</h3>
 	
-Q. 5	Create examples to explain callback function
-	
-Q. 6	Create examples to explain callback hell function
-	
-Q. 7	Create examples to explain promises function
-	
-Q. 8	Create examples to explain async await function
-	
-Q. 9	Create examples to explain promise.all function
+<h>Q. 7	Create examples to explain promises function</h>
+<h2>
+    <pre>
+        let myPromise = new Promise(function(Resolve,Reject) {
+            let x = 0;
+            if (x == 1) {
+              Resolve("i am the promise function");
+            } else {
+              Reject("error");
+            }
+          });
+          
+          myPromise.then(
+            function(value) {console.log(value);}
+            
+          )
+          .catch(
+              function(error) {console.log(error);})
+    </pre>
+</h2>
+<h3>
+    output:i am the promise function
+</h3>
+<h3>
+    Explaination:A promise is an object to  handle the  asynchronous operations and 
+    It is used to find out if the asynchronous operation is successfully completed or not. 
+    A promise has  three kind of  states like pending and resolved , rejected. if task was executed then we get result
+    otherwise error
+</h3>
+
+<h2>Q. 8	Create examples to explain async await function</h2>
+<h2>
+    <pre>
+        async function demo() {
+            let promise = new Promise(function(resolve, reject) {
+              resolve("welcome to real world");
+            });
+            var res=await promise;
+            console.log(res)
+          }
+          
+        demo();
+    </pre>
+</h2>
+<h3>
+    output:welcome to real world
+</h3>
+<h3>
+    Explaination:Normally all assigned asynchronous operations are start at same time but here in my code i used async 
+    keyword to the function like async function demo() and there is await keyword in my function here the purpose await keyword is 
+    wait for the result of that statement, and completion of the statement then only it will move to next line
+</h3>
+<h2>Q. 9	Create examples to explain promise.all function</h2>
+<h2>
+    <pre>
+        function demo1(){
+            return new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    res("1st executed in 1 sec")
+                },1000)
+            })
+        }
+
+function demo2(){
+            
+            return new Promise((res,rej)=>{
+                setTimeout(()=>{
+                    res("2nd executed in 5 ses")
+                },5000)
+            })
+    }
+
+       
+        
+Promise.all([demo1(), demo2()])
+.then((output) => {
+    console.log( output)})
+.catch((error)=>{
+    console.log(error)
+})
+    </pre>
+</h2>	
+<h3>output:[ '1st executed in 1 sec', '2nd executed in 5 ses' ]
+
+</h3>
+<h3>
+    Explaination:In this code i used one of the method of promise that method name is all() and the purpose of 'all' is 
+    all asynchronous operations start at one time and will get result after the completion all opertions 
+</h3>
 </body>
 </html>
